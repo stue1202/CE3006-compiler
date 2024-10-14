@@ -111,8 +111,7 @@ bool primary_tail(vector<string> &v,int base){
 	return false;
 }
 bool ID(vector<string> &v,int base){
-		cout<<"in ID"<<endl;
-
+	cout<<"in ID"<<endl;
 	if(checkrange(v,base)){
 		return false;
 	}
@@ -125,8 +124,7 @@ bool ID(vector<string> &v,int base){
 	
 }
 bool STRLIT(vector<string> &v,int base){
-		cout<<"in STRLIT"<<endl;
-
+	cout<<"in STRLIT"<<endl;
 	if(checkrange(v,base)){
 		return false;
 	}
@@ -138,8 +136,7 @@ bool STRLIT(vector<string> &v,int base){
 	return false;
 }
 bool LBR(vector<string> &v,int base){
-			cout<<"in LBR"<<endl;
-
+	cout<<"in LBR"<<endl;
 	if(checkrange(v,base)){
 		return false;
 	}
@@ -151,8 +148,7 @@ bool LBR(vector<string> &v,int base){
 	return false;
 }
 bool END(vector<string> &v,int base){
-				cout<<"in END"<<endl;
-
+	cout<<"in END"<<endl;
 	if(checkrange(v,base)){
 		return false;
 	}
@@ -163,8 +159,7 @@ bool END(vector<string> &v,int base){
 	return false;
 }
 bool RBR(vector<string> &v,int base){
-				cout<<"in RBR"<<endl;
-
+	cout<<"in RBR"<<endl;
 	if(checkrange(v,base)){
 		return false;
 	}
@@ -176,8 +171,7 @@ bool RBR(vector<string> &v,int base){
 	return false;
 }
 bool DOT(vector<string> &v,int base){
-				cout<<"in DOT"<<endl;
-
+	cout<<"in DOT"<<endl;
 	if(checkrange(v,base)){
 		return false;
 	}
@@ -189,8 +183,7 @@ bool DOT(vector<string> &v,int base){
 	return false;
 }
 bool SEMICOLON(vector<string> &v,int base){
-				cout<<"in SEMI"<<endl;
-
+	cout<<"in SEMI"<<endl;
 	if(checkrange(v,base)){
 		return false;
 	}
@@ -202,8 +195,7 @@ bool SEMICOLON(vector<string> &v,int base){
 	return false;
 }
 bool any(vector<string> &v,int base){
-				cout<<"in any"<<endl;
-
+	cout<<"in any"<<endl;
 	if(checkrange(v,base)){
 		return false;
 	}
@@ -218,26 +210,21 @@ void toToken(vector<string> &q,string input){
     while(input.length()>0){
             if(input[0]==' '){
                 input.erase(0,1);
-            }
-            else if(regex_search(input, result,regexID)&&input.find(result.str())==0) {
+            }else if(regex_search(input, result,regexID)&&input.find(result.str())==0) {
                 q.push_back("ID");
                 k.push(result.str());
                 input.erase(0,result.str().length());
-            }
-            else if (regex_search(input,result,regexSTRLIT)&&input.find(result.str())==0) {
+            }else if (regex_search(input,result,regexSTRLIT)&&input.find(result.str())==0) {
                 q.push_back("STRLIT");
                 k.push(result.str());
                 input.erase(0,result.str().length());
-            }
-            else if (regex_search(input,result,regexLBR)&&input.find(result.str())==0) {
+            }else if (regex_search(input,result,regexLBR)&&input.find(result.str())==0) {
                 q.push_back("LBR");
                 input.erase(0,result.str().length());
-            }
-            else if (regex_search(input,result,regexRBR)&&input.find(result.str())==0) {
+            }else if (regex_search(input,result,regexRBR)&&input.find(result.str())==0) {
                 q.push_back("RBR");
                 input.erase(0,result.str().length());
-            }
-            else if (regex_search(input,result,regexDOT)&&input.find(result.str())==0) {
+            }else if (regex_search(input,result,regexDOT)&&input.find(result.str())==0) {
                 q.push_back("DOT");
                 input.erase(0,result.str().length());
             }else if(regex_search(input,result,regexSEMICOLON)&&input.find(result.str())==0){
