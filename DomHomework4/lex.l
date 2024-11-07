@@ -1,20 +1,30 @@
 %{
-#include <stdio.h>
+
 %}
 
+valid_id        [_a-zA-Z][a-zA-Z0-9_]*
+non_blank       [^ \t\n]+
+
 %%
-[0-9]+          printf("Number: %s\n", yytext);
-[a-zA-Z]+       printf("Word: %s\n", yytext);
-\n              ; // 忽略換行
-.               printf("Unknown character: %s\n", yytext);
+{valid_id}      { printf("Valid Identifier: %s\n", yytext); }
+{non_blank}     { printf("Invalid Identifier: %s\n", yytext); }
+\n              { ; }
+.               { ; }
 
 %%
 
-int main() {
-    yylex();  // 開始詞法分析
-    return 0;
+int yywrap(void) {
+    return 1;
 }
 
-int yywrap() {
-    return 1; // 指示結束
+int main(void) {
+    const char* sFile = "input.txt";
+    FILE* fp = fopen(sFile, "r");
+    if (fp == NULL) {
+        printf("cannot open %s\n", sFile);
+        return -1;
+    }
+    yyin = fp;
+    yylex();
+    return 0;
 }
