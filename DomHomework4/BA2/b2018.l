@@ -30,7 +30,7 @@ int myCheck(char* str){
 %}
 IP ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+
 Email ^[a-zA-Z0-9]+\@[a-zA-Z]+(\.[a-zA-Z]+)+
-Word ^[A-Z][a-zA-Z]+
+Word [A-Z][a-zA-Z]+
 %%
 {IP} {if(!myCheck(yytext)){
         printf("IP:%s\n",yytext);
