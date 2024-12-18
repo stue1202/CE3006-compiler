@@ -2,6 +2,7 @@
 #include <string.h> 
 int tabCount=0;
 %}
+
 %%
 [^ \t\n].* {
     if(strchr(yytext,'{')&&!strchr(yytext,'}')){
@@ -17,7 +18,7 @@ int tabCount=0;
         printf(yytext);
     }
 }
-\n* {printf(yytext);}
+\n+ {printf(yytext);}
 [ \t]* {;}
 %%
 int yywrap(void) {

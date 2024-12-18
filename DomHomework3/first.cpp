@@ -66,7 +66,7 @@ int main(){
     for (auto it = inputData.begin(); it != inputData.end(); ++it) {//iterating LHS
         first(it->first);
     }
-    for (auto it = DP.begin(); it != DP.end(); ++it) {//iterating LHS
+    for (auto it = DP.begin(); it != DP.end(); ++it) {//print LHS
         cout<<it->first<<" ";
         for(char c:it->second){
             cout<<c;
